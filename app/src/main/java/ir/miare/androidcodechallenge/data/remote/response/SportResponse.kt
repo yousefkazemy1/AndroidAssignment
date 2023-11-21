@@ -1,10 +1,10 @@
-package ir.miare.androidcodechallenge
+package ir.miare.androidcodechallenge.data.remote.response
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import ir.miare.androidcodechallenge.domain.model.Sport
 import java.io.Serializable
 
-
-data class FakeData(
+data class SportResponse(
     @JsonProperty("league") var league: League,
     @JsonProperty("players") var players: List<Player>
 )

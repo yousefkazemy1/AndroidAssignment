@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".presentation.ui.MainActivity">
 
     <LinearLayout
         android:id="@+id/ll_sorting"
@@ -39,32 +39,36 @@
             app:layout_constraintTop_toBottomOf="@id/tv_sorting_title">
 
             <RadioGroup
+                android:id="@+id/radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RadioButton
+                    android:id="@+id/rb_team_league"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/indigo_700"
                     android:textStyle="bold"
                     android:text="Team &amp; league ranking"/>
                 <RadioButton
+                    android:id="@+id/rb_most_goals"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/indigo_700"
                     android:textStyle="bold"
                     android:text="Most goals scored by a player"/>
                 <RadioButton
+                    android:id="@+id/rb_average_goal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/indigo_700"
                     android:textStyle="bold"
                     android:text="Average goal per match in a league"/>
                 <RadioButton
+                    android:id="@+id/rb_none"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/indigo_700"
                     android:textStyle="bold"
-                    android:checked="true"
                     android:text="None"/>
             </RadioGroup>
 

@@ -41,6 +41,7 @@ class RankingFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = RankingAdapter {
+            // clicked on a player item of recycler view
             openPlayerInfoBottomSheet(it)
         }
         binding?.recyclerRank?.adapter = adapter
@@ -66,6 +67,7 @@ class RankingFragment() : Fragment() {
         }
 
         viewModel.message.observe(viewLifecycleOwner) {
+            // getContentIfNotHandled() method will check if the value already has been handled or not!
             it.getContentIfNotHandled()?.let { messageUI ->
                 val message = if (messageUI.id != -1) {
                     getString(messageUI.id)

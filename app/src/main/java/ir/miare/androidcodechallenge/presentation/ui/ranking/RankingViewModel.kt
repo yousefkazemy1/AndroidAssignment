@@ -52,6 +52,7 @@ class RankingViewModel @Inject constructor(
             sportListData = result.data
             _sportList.postValue(result.data.mapToRankUIDataList())
         } else {
+            // error, couldn't get data, so see error data to figure out the reason
             _message.postValue(Event(MessageUI(id = R.string.error_in_fetching_data)))
         }
     }

@@ -21,5 +21,5 @@ data class PlayerUI(
     val teamName: String,
     val teamRank: Int,
     val totalGoal: Int,
-    val showTotalGoal: Boolean = false
+    val showTotalGoal: Boolean = false // It defines that which content should be shown: false -> teamRank or true -> totalGoal
 ): Serializable

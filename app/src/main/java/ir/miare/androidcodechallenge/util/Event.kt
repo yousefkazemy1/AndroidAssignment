@@ -1,5 +1,11 @@
 package ir.miare.androidcodechallenge.util
 
+import androidx.lifecycle.LiveData
+
+/**
+ * This helper class is used to observe data once from [LiveData]
+ * So to observe again from LiveData you need to set new value.
+ */
 open class Event<out T>(private val content: T) {
 
     var hasBeenHandled = false

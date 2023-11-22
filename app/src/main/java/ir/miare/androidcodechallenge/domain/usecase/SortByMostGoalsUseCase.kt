@@ -1,7 +1,6 @@
 package ir.miare.androidcodechallenge.domain.usecase
 
-import ir.miare.androidcodechallenge.domain.model.League
-import ir.miare.androidcodechallenge.domain.model.Player
+import ir.miare.androidcodechallenge.domain.mapper.convertToPlayersList
 import ir.miare.androidcodechallenge.domain.model.Sport
 import ir.miare.androidcodechallenge.util.SortOrder
 
@@ -13,31 +12,20 @@ class SortByMostGoalsUseCase {
         sportDataList: List<Sport>,
         sortOrder: SortOrder = SortOrder.DESC,
     ): List<Sport> {
-        val playersList = ArrayList<Player>()
-        sportDataList.forEach { sport ->
-            sport.players.forEach { player ->
-                playersList.add(
-                    player.copy(
-                        id = player.id,
-                        name = player.name,
-                        team = player.team,
-                        totalGoal = player.totalGoal
-                    )
-                )
-            }
-        }
-        val sortedPlayersList = when (sortOrder) {
-            SortOrder.DESC -> {
-                playersList.sortedByDescending { it.totalGoal }
-            }
+        return sportDataList.convertToPlayersList().let { playersList ->
+            when (sortOrder) {
+                SortOrder.DESC -> {
+                    playersList.sortedByDescending { it.totalGoal }
+                }
 
-            else -> {
-                playersList.sortedBy { it.totalGoal }
+                else -> {
+                    playersList.sortedBy { it.totalGoal }
+                }
             }
+        }.let { sortedPlayersList ->
+            listOf(
+                Sport(players = sortedPlayersList)
+            )
         }
-
-        return listOf(
-            Sport(players = sortedPlayersList)
-        )
     }
 }

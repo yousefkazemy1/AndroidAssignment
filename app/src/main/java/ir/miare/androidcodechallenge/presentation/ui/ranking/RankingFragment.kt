@@ -33,7 +33,7 @@ class RankingFragment() : Fragment() {
         binding = FragmentRankingBinding.bind(view)
 
         viewModel = ViewModelProvider(this)[RankingViewModel::class.java]
-        viewModel.getSportData()
+        viewModel.startGettingSportData()
 
         return view
     }

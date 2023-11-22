@@ -1,5 +1,6 @@
 package ir.miare.androidcodechallenge.presentation.ui.ranking
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -37,17 +38,21 @@ class RankingViewModel @Inject constructor(
     private val _message: MutableLiveData<Event<MessageUI>> = MutableLiveData(Event(MessageUI()))
     val message: LiveData<Event<MessageUI>> = _message
 
-    fun getSportData() {
-        _progressState.postValue(true)
+    fun startGettingSportData() {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = sportDataUseCase()
-            if (result is Result.Success) {
-                _progressState.postValue(false)
-                sportListData = result.data
-                _sportList.postValue(result.data.mapToRankUIDataList())
-            } else {
-                _message.postValue(Event(MessageUI(id = R.string.error_in_fetching_data)))
-            }
+            getSportData()
+        }
+    }
+
+    suspend fun getSportData() {
+        _progressState.postValue(true)
+        val result = sportDataUseCase()
+        if (result is Result.Success) {
+            _progressState.postValue(false)
+            sportListData = result.data
+            _sportList.postValue(result.data.mapToRankUIDataList())
+        } else {
+            _message.postValue(Event(MessageUI(id = R.string.error_in_fetching_data)))
         }
     }
 

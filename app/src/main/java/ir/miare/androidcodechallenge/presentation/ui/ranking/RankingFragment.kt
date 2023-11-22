@@ -50,7 +50,11 @@ class RankingFragment() : Fragment() {
 
         viewModel.sportList.observe(viewLifecycleOwner) {
             adapter.rankList = it
+
+            // this is not optimized enough, so for this purpose it is ok.
             adapter.notifyDataSetChanged()
+
+            binding?.recyclerRank?.scrollToPosition(0)
         }
 
         viewModel.progressState.observe(viewLifecycleOwner) {

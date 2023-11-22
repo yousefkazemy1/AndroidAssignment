@@ -5,4 +5,11 @@
 
     <string name="message_data_not_loaded">Please wait, trying to collect information</string>
     <string name="error_in_fetching_data">There is an error to fetch information</string>
+
+    <string name="sort_title">Sorting by: </string>
+    <string name="sort_by_team_and_league">Team &amp; league ranking</string>
+    <string name="sort_by_most_goals">Most goals scored by a player</string>
+    <string name="sort_by_average_goal">Average goal per match in a league</string>
+    <string name="sort_by_default">None</string>
+
 </resources>

@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textStyle="bold"
-            android:text="Sorting by: "
+            android:text="@string/sort_title"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <LinearLayout
@@ -48,28 +48,28 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/indigo_700"
                     android:textStyle="bold"
-                    android:text="Team &amp; league ranking"/>
+                    android:text="@string/sort_by_team_and_league"/>
                 <RadioButton
                     android:id="@+id/rb_most_goals"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/indigo_700"
                     android:textStyle="bold"
-                    android:text="Most goals scored by a player"/>
+                    android:text="@string/sort_by_most_goals"/>
                 <RadioButton
                     android:id="@+id/rb_average_goal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/indigo_700"
                     android:textStyle="bold"
-                    android:text="Average goal per match in a league"/>
+                    android:text="@string/sort_by_average_goal"/>
                 <RadioButton
                     android:id="@+id/rb_none"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/indigo_700"
                     android:textStyle="bold"
-                    android:text="None"/>
+                    android:text="@string/sort_by_default"/>
             </RadioGroup>
 
         </LinearLayout>

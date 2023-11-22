@@ -51,7 +51,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, rankingFragment)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, rankingFragment)
             .commit()
     }
 }
